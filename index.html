@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRP LMS</title>
+    <style>
+        :root {
+            --navy: #003366;
+            --orange: #FE781E;
+            --blue: #5F9FE0;
+            --bg: #E2F2FD;
+            --border: #D6E9FF;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            color: #263B52;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            border-bottom: 1px solid var(--border);
+        }
+        nav {
+            max-width: 1120px;
+            min-height: 72px;
+            margin: auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--navy);
+            font-weight: bold;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        .brand img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 0;
+        }
+        .nav-links a.active,
+        .nav-links a:hover {
+            color: var(--orange);
+            border-bottom: 2px solid var(--orange);
+        }
+        .sign-in {
+            border: 1px solid var(--orange);
+            border-radius: 7px;
+            padding: 8px 18px;
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .sign-in:hover {
+            background: var(--orange);
+            color: white;
+        }
+        .hero {
+            background: linear-gradient(110deg, #F3FAFF, var(--bg));
+        }
+        .hero-container {
+            max-width: 1120px;
+            min-height: 390px;
+            margin: auto;
+            padding: 45px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 30px;
+        }
+        .kicker {
+            color: var(--orange);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        h1 {
+            color: var(--navy);
+            font-size: 48px;
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+        h1 span {
+            color: var(--orange);
+        }
+        .description {
+            color: #55718D;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .explore-btn {
+            display: inline-block;
+            background: var(--orange);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero-image img {
+            width: 100%;
+            max-width: 590px;
+            height: auto;
+            display: block;
+        }
+        .journey {
+            max-width: 1120px;
+            margin: auto;
+            padding: 40px 20px 55px;
+        }
+        .journey h2 {
+            color: var(--navy);
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+        .journey-subtitle {
+            color: var(--blue);
+            margin-bottom: 22px;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px;
+            min-height: 150px;
+        }
+        .number {
+            color: var(--orange);
+            font-size: 30px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .card h3 {
+            color: var(--navy);
+            margin-bottom: 5px;
+            font-size: 17px;
+        }
+        .card p {
+            color: #66819B;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        @media (max-width: 1024px) {
+            .cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            h1 {
+                font-size: 38px;
+            }
+        }
+        @media (max-width: 768px) {
+            nav {
+                min-height: 62px;
+                padding: 8px 14px;
+            }
+            .brand img {
+                width: 36px;
+                height: 36px;
+            }
+            .brand {
+                font-size: 17px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .sign-in {
+                padding: 7px 15px;
+            }
+            .hero-container {
+                grid-template-columns: 1fr;
+                padding: 30px 16px;
+                gap: 20px;
+            }
+            h1 {
+                font-size: 34px;
+            }
+            .description {
+                font-size: 14px;
+            }
+            .hero-image img {
+                max-height: 230px;
+                object-fit: contain;
+            }
+            .journey {
+                padding: 28px 16px 40px;
+            }
+            .journey h2 {
+                font-size: 24px;
+            }
+            .cards {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .card {
+                min-height: auto;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home" class="brand">
+                <img src="https://res.cloudinary.com/dwh7w9kz1/image/upload/v1793204894/irp_lms_navbar_icon_rc0f9k.png" alt="IRP LMS Logo">
+                <span>IRP LMS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#journey">Courses</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <a href="#signin" class="sign-in">Sign In</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <p class="kicker">LEARN • BUILD • GET PLACED</p>
+                    <h1>Welcome to <span>IRP LMS</span> Platform</h1>
+                    <p class="description">Your step-by-step learning journey to build skills, gain confidence and get placed in your dream job.</p>
+                    <a href="#journey" class="explore-btn">Explore Courses →</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://res.cloudinary.com/dwh7w9kz1/image/upload/v1793204857/Climbing_Towards_Success_dcuk4i.png" alt="Climbing Towards Success">
+                </div>
+            </div>
+        </section>
+        <section class="journey" id="journey">
+            <h2>Your Learning Journey</h2>
+            <p class="journey-subtitle">Follow these steps to build your skills and get ready for placement.</p>
+            <div class="cards">
+                <article class="card">
+                    <span class="number">1</span>
+                    <h3>Learn</h3>
+                    <p>Take structured courses and build concepts.</p>
+                </article>
+                <article class="card">
+                    <span class="number">2</span>
+                    <h3>Practice</h3>
+                    <p>Solve problems and improve your skills.</p>
+                </article>
+                <article class="card">
+                    <span class="number">3</span>
+                    <h3>Build Projects</h3>
+                    <p>Work on real-world projects for your portfolio.</p>
+                </article>
+                <article class="card">
+                    <span class="number">4</span>
+                    <h3>Prepare</h3>
+                    <p>Get interview ready with mock sessions and guidance.</p>
+                </article>
+                <article class="card">
+                    <span class="number">5</span>
+                    <h3>Get Placed</h3>
+                    <p>Apply to drives and achieve your career goals.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer id="contact" style="text-align:center; padding:20px; color:#66819B;">
+        © 2026 IRP LMS. Learn • Build • Get Placed.
+    </footer>
+</body>
+</html>
